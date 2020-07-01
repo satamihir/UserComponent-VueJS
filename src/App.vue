@@ -19,7 +19,7 @@
 </script>
 
 <style>
-div.component {
+    div.component {
         border: 1px solid black;
         padding: 30px;
     }

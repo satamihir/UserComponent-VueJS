@@ -1,44 +1,40 @@
 <template>
     <div class="component">
-         <h1>The User Component</h1>
+        <h1>The User Component</h1>
         <p>I'm an awesome User!</p>
-        <button @click="onChange">Change my name</button>
-        <p> New Name: {{ name }}</p>
+        <button @click="changeName">Change Name</button>
+        <p> New Name: {{ name }} </p>
+        <p>UserAge: {{ age }} </p>
         <hr>
         <div class="row">
             <div class="col-xs-12 col-sm-6">
-                <app-user-detail :name="name" 
-                @nameWasReset="name = $event"
-                :resetFn="resetName"
-                :userAge="age"></app-user-detail>
+                <app-user-detail :name='name' @nameWasReset="name = $event" :userAge ='age'></app-user-detail>
             </div>
             <div class="col-xs-12 col-sm-6">
-                <app-user-edit :userAge= "age"
-                @ageWasEdited="age= $event"></app-user-edit>
+                <app-user-edit :userAge ='age' @ageWasReset ="age = $event"></app-user-edit>
             </div>
         </div>
-        </div>    
+    </div>
 </template>
+
 <script>
- import UserDetail from './UserDetail.vue';
+    import UserDetail from './UserDetail.vue';
     import UserEdit from './UserEdit.vue';
 
     export default {
-        data: function(){
-            return{
+        data(){
+            return {
                 name: 'Max',
                 age: 27
-            }
+        }
         },
         methods:{
-            onChange(){
-                this.name='Mihir'
+            changeName(){
+                this.name="Mihir"
             },
             resetName(){
-                this.name='max'
-
-            },
-            
+                this.name = "Max"
+            }
         },
         components: {
             appUserDetail: UserDetail,
@@ -46,8 +42,9 @@
         }
     }
 </script>
+
 <style scoped>
-div {
+    div {
         background-color: lightblue;
     }
 </style>
